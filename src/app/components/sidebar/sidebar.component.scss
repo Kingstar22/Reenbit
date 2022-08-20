@@ -1,8 +1,8 @@
 :host {
-  border-right: 1px solid #8c8c8c;
+  border-right: 1px solid rgb(0 0 0 / 15%) ;
 }
 .sidebar {
-
+  height: 100%;
   &__nav {
     padding: 15px;
     border-bottom: 2px solid rgb(0 0 0 / 15%);
@@ -58,7 +58,7 @@
   display: flex;
   justify-content: space-between;
   padding: 20px 15px;
-  border-bottom: 1px solid rgb(0 0 0 / 15%) ;
+  border-bottom: 1px solid rgb(0 0 0 / 15%);
 }
 .list__desc {
   display: flex;
