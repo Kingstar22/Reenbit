@@ -1,22 +1,24 @@
 <section class="messages">
     <div class="messages-wrapper">
         <header class="messages__header">
-            <img class="messages__header-img" src="assets/icon/icon_1.png" alt="icon-chat">
+            <img class="messages__header-img" src="../../../assets/icon/icon_{{dialogue.id}}.png" alt="icon-chat">
             <svg height="15" width="15" class="messages__header-icon">
                 <use href="./assets/sprites.svg#desc-icon"></use>
             </svg>
-            <h1 class="messages__header-title">Alice Freeman</h1>
+            <h1 class="messages__header-title">{{dialogue.name}}</h1>
         </header>
-        <main class="messages__field">
+        <main class="messages__field" *ngFor="let textMessage of dialogue.prevMessage">
             <div class="messages__user">
-                <img class="messages__user-img" src="assets/icon/icon_1.png" alt="icon-chat">
+                <img class="messages__user-img" src="../../../assets/icon/icon_{{dialogue.id}}.png" alt="icon-chat">
                 <div class="user__desc">
-                    <p class="user__desc-text">additionally, a context object can be associated</p>
+                    <p class="user__desc-text">{{textMessage}}</p>
                     <p class="user__desc-data">4/22/17, 4:10 AM</p>
                 </div>
             </div>
         </main>
-        <form class="messages__input">
+        <form class="messages__input"
+              (submit)="sendMessage($event)"
+             >
             <div class="messages-block">
                 <textarea placeholder="Type you message" class="messages__input-field" ></textarea>
                 <button class="messages__input-btn">
@@ -28,3 +30,5 @@
         </form>
     </div>
 </section>
+
+

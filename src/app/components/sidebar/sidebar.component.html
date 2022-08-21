@@ -13,44 +13,21 @@
     <aside class="sidebar__chats">
         <h2 class="sidebar__chats-title">Chats</h2>
         <ul class="chats__list">
-            <li class="list__item">
+            <li class="list__item"
+                *ngFor="let dialogue of dialogues"
+                (click)="dialogueClick.emit(dialogue)">
                 <div class="list__desc">
-                    <img class="list__desc-img" src="assets/icon/icon_1.png" alt="icon-chat">
+                    <img class="list__desc-img" src="assets/icon/icon_{{dialogue.id}}.png" alt="icon-chat">
                     <svg height="15" width="15" class="list__desc-icon">
                         <use href="./assets/sprites.svg#desc-icon"></use>
                     </svg>
                     <div class="list__desc-text">
-                        <p class="list__desc-text-title">Alice Freeman</p>
-                        <p class="list__desc-text-subtitle">You are the worst!</p>
+                        <p class="list__desc-text-title">{{dialogue.name}}</p>
+                        <p class="list__desc-text-subtitle">{{dialogue.prevMessage}}</p>
                     </div>
                 </div>
-                <p class="list__item-time">jun 12,2017</p>
-            </li>
-            <li class="list__item">
-                <div class="list__desc">
-                    <img class="list__desc-img" src="assets/icon/icon_2.png" alt="icon-chat">
-                    <svg height="15" width="15" class="list__desc-icon">
-                        <use href="./assets/sprites.svg#desc-icon"></use>
-                    </svg>
-                    <div class="list__desc-text">
-                        <p class="list__desc-text-title">Alice Freeman</p>
-                        <p class="list__desc-text-subtitle">You are the worst!</p>
-                    </div>
-                </div>
-                <p class="list__item-time">jun 12,2017</p>
-            </li>
-            <li class="list__item">
-                <div class="list__desc">
-                    <img class="list__desc-img" src="assets/icon/icon_3.png" alt="icon-chat">
-                    <svg height="15" width="15" class="list__desc-icon">
-                        <use href="./assets/sprites.svg#desc-icon"></use>
-                    </svg>
-                    <div class="list__desc-text">
-                        <p class="list__desc-text-title">Alice Freeman</p>
-                        <p class="list__desc-text-subtitle">You are the worst!</p>
-                    </div>
-                </div>
-                <p class="list__item-time">jun 12,2017</p>
+                <p class="list__item-time">{{dialogue.data}}</p>
+                    <!--                add new message indicator-->
             </li>
         </ul>
     </aside>

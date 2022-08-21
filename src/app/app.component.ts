@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {IDialogue} from "./models/dialogue";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Reenbit';
+  dialogue!: IDialogue;
+
+
+  onConversationSelected(dialogue: IDialogue){
+    this.dialogue = dialogue;
+  }
 }

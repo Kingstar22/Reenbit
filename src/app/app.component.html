@@ -1,5 +1,15 @@
 <div class="chat">
-    <app-sidebar class="chat__sidebar"></app-sidebar>
-    <app-chat class="chat__messages"></app-chat>
+    <app-sidebar
+        class="chat__sidebar"
+        (dialogueClick)="onConversationSelected($event)"></app-sidebar>
+    <app-chat
+        class="chat__messages"
+        [dialogue]="dialogue"
+        *ngIf="dialogue else emptyState"></app-chat>
 </div>
+
+<ng-template #emptyState>
+    <p class="posts-empty">Select dialogue in sidebar</p>
+</ng-template>
+
 <router-outlet></router-outlet>
