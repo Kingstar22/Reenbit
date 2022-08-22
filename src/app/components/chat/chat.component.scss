@@ -52,11 +52,9 @@
     padding: 19px 15px;
 
     &-field {
-      resize: none;
       width: 90%;
-      height: 60%;
       border: none;
-      font-size: 15px;
+      font-size: 16px;
       outline: none;
       padding-left: 10px;
     }
@@ -72,17 +70,34 @@
 
   &__user {
     display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 
+    &-block {
+      display: flex;
+    }
+    &-my {
+      align-items: flex-end;
+    }
 
     &-img {
       width: 40px;
       height: 40px;
       margin: 2px 10px 0 0;
+
+      &-my {
+        display: none;
+      }
     }
   }
 }
 
 .user__desc {
+  &-my {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
 
   &-text {
     background: #3C4250;
@@ -97,21 +112,22 @@
     font-weight: 400;
     color: #706f6f;
     font-size: 12px;
-    margin: 0 5px;
+    margin: 0 0 15px 10px;
   }
-  //&-text {
-  //  background: #706f6f;;
-  //  border-radius: 22px;
-  //  font-size: 16px;
-  //  font-weight: 500;
-  //  color: #FFF;
-  //  padding: 12px 10px;
-  //  margin: 0 0 5px;
-  //}
-  //&-data {
-  //  font-weight: 400;
-  //  color: #706f6f;
-  //  font-size: 12px;
-  //  margin: 0 5px;
-  //}
+  &-text-my {
+    background: #706f6f;;
+    border-radius: 22px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #FFF;
+    padding: 12px 10px;
+    margin: 0 0 5px;
+  }
+  &-data-my {
+    font-weight: 400;
+    color: #706f6f;
+    font-size: 12px;
+    margin: 0 0 15px 0;
+  }
 }
+

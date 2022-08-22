@@ -6,9 +6,9 @@
             </svg>
             <p class="sidebar__nav-name">User</p>
         </div>
-        <form class="sidebar__search">
+        <div class="sidebar__search">
             <input class="sidebar__search-field" type="search" placeholder="Search or start new chat">
-        </form>
+        </div>
     </nav>
     <aside class="sidebar__chats">
         <h2 class="sidebar__chats-title">Chats</h2>
@@ -26,7 +26,7 @@
                         <p class="list__desc-text-subtitle">{{dialogue.prevMessage}}</p>
                     </div>
                 </div>
-                <p class="list__item-time">{{dialogue.data}}</p>
+                <p class="list__item-time">{{dialogue.data | date:'mediumDate'}}</p>
                     <!--                add new message indicator-->
             </li>
         </ul>

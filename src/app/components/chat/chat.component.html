@@ -7,27 +7,43 @@
             </svg>
             <h1 class="messages__header-title">{{dialogue.name}}</h1>
         </header>
-        <main class="messages__field" *ngFor="let textMessage of dialogue.prevMessage">
-            <div class="messages__user">
-                <img class="messages__user-img" src="../../../assets/icon/icon_{{dialogue.id}}.png" alt="icon-chat">
-                <div class="user__desc">
-                    <p class="user__desc-text">{{textMessage}}</p>
-                    <p class="user__desc-data">4/22/17, 4:10 AM</p>
+        <main class="messages__field">
+            <div class="messages__user" *ngFor="let message of dialogue.messages"
+                 [ngClass]="{'messages__user-my': message.isMyMessage}">
+                <div class="messages__user-block">
+                    <ng-container *ngIf="!message.isMyMessage else myMessage">
+                        <img class="messages__user-img"
+                             src="../../../assets/icon/icon_{{dialogue.id}}.png"
+                             alt="icon-chat">
+                        <div class="user__desc">
+                            <p class="user__desc-text">{{message.text}}</p>
+                            <p class="user__desc-data">{{message.dataMessage |date:'short'}}</p>
+                        </div>
+                    </ng-container>
                 </div>
+                <ng-template #myMessage>
+                    <div class="user__desc-my">
+                        <p class="user__desc-text-my">{{message.text}}</p>
+                        <p class="user__desc-data-my">{{message.dataMessage |  date:'short'}}</p>
+                    </div>
+                </ng-template>
             </div>
         </main>
-        <form class="messages__input"
-              (submit)="sendMessage($event)"
-             >
+        <div class="messages__input">
             <div class="messages-block">
-                <textarea placeholder="Type you message" class="messages__input-field" ></textarea>
-                <button class="messages__input-btn">
+                <input    placeholder="Type you message"
+                          type="text"
+                          class="messages__input-field"
+                          [formControl]="textControl"
+                          (keydown.enter)="sendMessage()">
+                <button class="messages__input-btn"
+                        (click)="sendMessage()">
                     <svg height="26" width="26">
                         <use href="./assets/sprites.svg#send-icon"></use>
                     </svg>
                 </button>
             </div>
-        </form>
+        </div>
     </div>
 </section>
 
