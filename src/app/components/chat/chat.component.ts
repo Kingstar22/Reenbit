@@ -8,23 +8,20 @@ import {ReplayMessageService} from "../../services/replay-message.service";
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.scss']
 })
-export class ChatComponent implements OnInit,OnDestroy {
+export class ChatComponent implements OnInit {
   @Input() dialogue!: IDialogue;
+  @Input() id!: number;
   textControl = new FormControl('');
   nowData!: number;
   // endOfChat!: ElementRef;
   constructor(private messageService: ReplayMessageService) { }
 
   ngOnInit(): void {
-    const value = sessionStorage.getItem('dialogue');
-    console.log(value);
-  }
-  ngOnDestroy() {
+    this.addHistoryChat();
 
   }
   sendMessage(): void {
     const message = this.textControl.value;
-    console.log(message);
     if (!message.trim()) {
       return;
     }
@@ -54,6 +51,26 @@ export class ChatComponent implements OnInit,OnDestroy {
       },5000);
     })
   }
+
+  addHistoryChat(): void {
+    this.messageService.getMessages(this.dialogue, this.id);
+  }
+
+
+  // addHistoryChat(): void {
+  //   const value = sessionStorage.getItem('dialogue');
+  //   if (value) {
+  //     const history = JSON.parse(atob(value));
+  //     const lengthArr = history.messages.length;
+  //     for(let i = this.dialogue.messages.length; i< lengthArr; i++) {
+  //       this.dialogue.messages.push({
+  //         text: history.messages[i].text,
+  //         dataMessage:history.messages[i].dataMessage,
+  //         isMyMessage: history.messages[i].isMyMessage,
+  //       });
+  //     }
+  //   }
+  // }
 
   // scrollToBottom() {
   //   setTimeout(() => {

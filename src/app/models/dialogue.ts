@@ -17,3 +17,8 @@ export interface IMessage {
 export interface IReplyMessage {
   value:string;
 }
+
+export interface IUser {
+  dialogue: IDialogue;
+  id: number;
+}

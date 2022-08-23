@@ -15,7 +15,8 @@
         <ul class="chats__list">
             <li class="list__item"
                 *ngFor="let dialogue of !searchName ? dialogues :filteredChats"
-                (click)="dialogueClick.emit(dialogue)">
+
+                (click)="onClick(dialogue, dialogue.id)">
                 <div class="list__desc">
                     <img class="list__desc-img" src="assets/icon/icon_{{dialogue.id}}.png" alt="icon-chat">
                     <svg height="15" width="15" class="list__desc-icon">

@@ -1,16 +1,30 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {IDialogue, IMessage} from "../../models/dialogue";
+import {IDialogue, IMessage, IUser} from "../../models/dialogue";
+import {ReplayMessageService} from "../../services/replay-message.service";
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss']
 })
-export class SidebarComponent {
+export class SidebarComponent  implements  OnInit {
 
-  constructor() { }
-  @Output() dialogueClick: EventEmitter<any> = new EventEmitter();
+  constructor(private messageService: ReplayMessageService) { }
+
+  ngOnInit(): void {
+
+    }
+  @Output() dialogueClick: EventEmitter<IUser> = new EventEmitter();
   searchName!: string;
+  dialogue!: IDialogue
+  id!: number
+  onClick(dialogue: any, id: number) {
+    this.dialogue = dialogue;
+    this.id = id;
+    this.dialogueClick.emit({dialogue, id});
+    this.addHistoryChat();
+  }
+
   dialogues = [
     {name: "Alice Freeman", data:"Jun 12,2017", prevMessage: "You are the worst!" , read: false, id: 1,
      messages: [
@@ -31,5 +45,23 @@ export class SidebarComponent {
       );
     });
   }
+
+  addHistoryChat(): void {
+    this.messageService.getMessages(this.dialogue, this.id);
+  }
+
+  //  addHistoryChat(): void {
+  //    const value = sessionStorage.getItem('dialogue');
+  //    if (value) {
+  //      const history = JSON.parse(atob(value));
+  //      const lengthArr = history.messages.length;
+  //      this.dialogues.forEach(dialogue => {
+  //        if (dialogue.name === "Alice Freeman") {
+  //          dialogue.prevMessage = history.messages[lengthArr - 1].text;
+  //          dialogue.data = history.messages[lengthArr - 1].dataMessage;
+  //        }
+  //      })
+  //    }
+  // }
 
 }

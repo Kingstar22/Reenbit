@@ -1,16 +1,21 @@
-import { Component } from '@angular/core';
-import {IDialogue} from "./models/dialogue";
+import {Component, OnInit} from '@angular/core';
+import {IDialogue, IUser} from "./models/dialogue";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  ngOnInit(): void {
+
+  }
   dialogue!: IDialogue;
+  id!: number;
 
 
-  onConversationSelected(dialogue: IDialogue){
-    this.dialogue = dialogue;
+  onDialogueSelected(dialogue: IUser){
+    this.dialogue = dialogue.dialogue;
+    this.id = dialogue.id;
   }
 }
