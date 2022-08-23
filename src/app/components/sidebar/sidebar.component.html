@@ -7,14 +7,14 @@
             <p class="sidebar__nav-name">User</p>
         </div>
         <div class="sidebar__search">
-            <input class="sidebar__search-field" type="search" placeholder="Search or start new chat">
+            <input class="sidebar__search-field" type="search" placeholder="Search or start new chat" [(ngModel)]= "searchName">
         </div>
     </nav>
     <aside class="sidebar__chats">
         <h2 class="sidebar__chats-title">Chats</h2>
         <ul class="chats__list">
             <li class="list__item"
-                *ngFor="let dialogue of dialogues"
+                *ngFor="let dialogue of !searchName ? dialogues :filteredChats"
                 (click)="dialogueClick.emit(dialogue)">
                 <div class="list__desc">
                     <img class="list__desc-img" src="assets/icon/icon_{{dialogue.id}}.png" alt="icon-chat">

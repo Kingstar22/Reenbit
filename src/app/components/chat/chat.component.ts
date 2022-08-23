@@ -1,4 +1,4 @@
-import {Component, ElementRef, Input, OnInit} from '@angular/core';
+import {Component, ElementRef, Input, OnDestroy, OnInit} from '@angular/core';
 import {IDialogue} from "../../models/dialogue";
 import {FormControl} from "@angular/forms";
 import {ReplayMessageService} from "../../services/replay-message.service";
@@ -8,7 +8,7 @@ import {ReplayMessageService} from "../../services/replay-message.service";
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.scss']
 })
-export class ChatComponent implements OnInit {
+export class ChatComponent implements OnInit,OnDestroy {
   @Input() dialogue!: IDialogue;
   textControl = new FormControl('');
   nowData!: number;
@@ -19,7 +19,9 @@ export class ChatComponent implements OnInit {
     const value = sessionStorage.getItem('dialogue');
     console.log(value);
   }
+  ngOnDestroy() {
 
+  }
   sendMessage(): void {
     const message = this.textControl.value;
     console.log(message);

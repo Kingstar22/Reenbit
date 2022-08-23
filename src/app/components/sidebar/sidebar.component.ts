@@ -6,10 +6,11 @@ import {IDialogue, IMessage} from "../../models/dialogue";
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss']
 })
-export class SidebarComponent implements OnInit {
+export class SidebarComponent {
 
   constructor() { }
   @Output() dialogueClick: EventEmitter<any> = new EventEmitter();
+  searchName!: string;
   dialogues = [
     {name: "Alice Freeman", data:"Jun 12,2017", prevMessage: "You are the worst!" , read: false, id: 1,
      messages: [
@@ -21,7 +22,14 @@ export class SidebarComponent implements OnInit {
     {name: "Brain", data:"Mar 18,2017", prevMessage: "You are the worst!" , read: false, id: 3},
   ]
 
-  ngOnInit(): void {
+  get filteredChats() {
+    return this.dialogues.filter((dialogue) => {
+      return (
+        dialogue.name
+          .toLowerCase()
+          .includes(this.searchName.toLowerCase())
+      );
+    });
   }
 
 }
