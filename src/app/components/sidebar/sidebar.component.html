@@ -14,21 +14,23 @@
         <h2 class="sidebar__chats-title">Chats</h2>
         <ul class="chats__list">
             <li class="list__item"
-                *ngFor="let dialogue of !searchName ? dialogues :filteredChats"
-
-                (click)="onClick(dialogue, dialogue.id)">
-                <div class="list__desc">
+                *ngFor="let dialogue of !searchName ? dialogues :filteredChats  "
+                (click)="onClick(dialogue)"
+                [ngClass]="{active: dialogue.id === activeState}">
+                <div class="list__desc" >
                     <img class="list__desc-img" src="assets/icon/icon_{{dialogue.id}}.png" alt="icon-chat">
                     <svg height="15" width="15" class="list__desc-icon">
                         <use href="./assets/sprites.svg#desc-icon"></use>
                     </svg>
                     <div class="list__desc-text">
                         <p class="list__desc-text-title">{{dialogue.name}}</p>
-                        <p class="list__desc-text-subtitle">{{dialogue.prevMessage}}</p>
+                        <p class="list__desc-text-subtitle">{{dialogue.prevMessage | slice:0:25}}</p>
                     </div>
                 </div>
-                <p class="list__item-time">{{dialogue.data | date:'mediumDate'}}</p>
-                    <!--                add new message indicator-->
+                <div class="list__block">
+                    <p class="list__item-time">{{dialogue.data | date:'mediumDate'}}</p>
+                    <span [ngClass]="{'message-indicator': !dialogue.read}"></span>
+                </div>
             </li>
         </ul>
     </aside>

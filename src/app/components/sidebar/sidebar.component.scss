@@ -53,13 +53,20 @@
   list-style-type: none;
   margin: 0;
   padding: 0;
+
 }
 .list__item {
   display: flex;
   justify-content: space-between;
   padding: 20px 15px;
   border-bottom: 1px solid rgb(0 0 0 / 15%);
+  cursor: pointer;
+  &:hover, &:focus {
+    outline: none;
+    background-color: rgb(245, 245, 245);
+  }
 }
+
 .list__desc {
   display: flex;
   position: relative;
@@ -86,7 +93,7 @@
       font-size: 14px;
       margin: 0;
       font-weight: 400;
-      color: #b0b0b0;
+      color: #9f9f9f;
     }
   }
 }
@@ -96,4 +103,23 @@
   margin: 0;
   font-weight: 400;
   color: #706f6f;
+}
+
+.active {
+  background-color: rgb(245, 245, 245);
+}
+
+.list__block {
+display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.message-indicator {
+  margin-top: 12px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #45849b;
+
 }

@@ -5,6 +5,7 @@
     <app-chat
         class="chat__messages"
         [dialogue]="dialogue"
+
         *ngIf="dialogue else emptyState"></app-chat>
 </div>
 
