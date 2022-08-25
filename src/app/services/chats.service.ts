@@ -10,7 +10,7 @@ export class ChatsService {
   constructor(private http: HttpClient) { }
 
   getMessageReply() {
-    return this.http.get<IReplyMessage>('https://api.chucknorris.io/jokes/random')
+    return this.http.get<IReplyMessage>('https://api.chucknorris.io/jokes/random');
   }
 
   getMessages(dialogue: IDialogue) {
@@ -20,14 +20,11 @@ export class ChatsService {
       const lengthArr = history.messages.length;
       for(let i = dialogue.messages.length; i< lengthArr; i++) {
           dialogue.messages.push({
-          text: history.messages[i].text,
-          dataMessage:history.messages[i].dataMessage,
-          isMyMessage: history.messages[i].isMyMessage,
-        });
+            text: history.messages[i].text,
+            dataMessage:history.messages[i].dataMessage,
+            isMyMessage: history.messages[i].isMyMessage
+          });
       }
-        dialogue.prevMessage = history.messages[lengthArr - 1].text;
-        dialogue.data = history.messages[lengthArr - 1].dataMessage;
-
     }
   }
 }

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, Output} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {IDialogue} from "../../models/dialogue";
 import {FormControl} from "@angular/forms";
 import {ChatsService} from "../../services/chats.service";
@@ -8,15 +8,13 @@ import {ChatsService} from "../../services/chats.service";
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.scss']
 })
-export class ChatComponent implements OnInit {
+export class ChatComponent {
+
   @Input() dialogue!: IDialogue;
   textControl = new FormControl('');
   nowData!: number;
   constructor(private messageService: ChatsService) { }
 
-  ngOnInit(): void {
-
-  }
   sendMessage(): void {
     const message = this.textControl.value;
     if (!message.trim()) {
@@ -37,19 +35,15 @@ export class ChatComponent implements OnInit {
 
   onMessageReply(): void {
     this.messageService.getMessageReply().subscribe((message) => {
-
-
-        setTimeout(() => {
-          this.dialogue.messages.push({
-            text: message.value,
-            dataMessage: this.nowData,
-            isMyMessage: false,
-          })
-          this.dialogue.read = false;
-          sessionStorage.setItem( `dialogue-${this.dialogue.id}`, btoa(JSON.stringify(this.dialogue)));
-        },5000);
-
-
+      setTimeout(() => {
+        this.dialogue.messages.push({
+          text: message.value,
+          dataMessage: this.nowData,
+          isMyMessage: false,
+        });
+        this.dialogue.read = false;
+        sessionStorage.setItem( `dialogue-${this.dialogue.id}`, btoa(JSON.stringify(this.dialogue)));
+      },5000);
     })
   }
 }

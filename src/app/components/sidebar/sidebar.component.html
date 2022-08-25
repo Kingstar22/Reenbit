@@ -14,7 +14,7 @@
         <h2 class="sidebar__chats-title">Chats</h2>
         <ul class="chats__list">
             <li class="list__item"
-                *ngFor="let dialogue of !searchName ? dialogues :filteredChats  "
+                *ngFor="let dialogue of !searchName ? dialogues :filteredChats "
                 (click)="onClick(dialogue)"
                 [ngClass]="{active: dialogue.id === activeState}">
                 <div class="list__desc" >

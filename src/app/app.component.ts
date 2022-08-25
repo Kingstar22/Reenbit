@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {IDialogue} from "./models/dialogue";
 import {ChatsService} from "./services/chats.service";
 
@@ -7,17 +7,13 @@ import {ChatsService} from "./services/chats.service";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
 
   constructor(private messageService: ChatsService) { }
-  ngOnInit(): void {
 
-  }
   dialogue!: IDialogue;
 
-
-
-  onDialogueSelected(dialogue: IDialogue){
+  onDialogueSelected(dialogue: IDialogue): void {
     this.dialogue = dialogue;
     this.addHistoryChat();
   }
@@ -25,6 +21,4 @@ export class AppComponent implements OnInit {
   addHistoryChat(): void {
     this.messageService.getMessages(this.dialogue);
   }
-
-
 }

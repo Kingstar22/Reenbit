@@ -13,12 +13,7 @@ export interface IMessage {
   isMyMessage:boolean;
 }
 
-
 export interface IReplyMessage {
   value:string;
 }
 
-export interface IUser {
-  dialogue: IDialogue;
-  id: number;
-}
