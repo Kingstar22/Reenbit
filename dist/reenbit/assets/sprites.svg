@@ -1,0 +1,11 @@
+<svg style="visibility: hidden" width="0" height="0">
+  <symbol id="icon-user-nav"  viewBox="0 0 50 50"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><circle cx="25" cy="25" fill="#EAEAEE" r="24"  stroke="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/><rect fill="none" height="50" width="50"/><path fill="#777E86" d="M29.933,35.528c-0.146-1.612-0.09-2.737-0.09-4.21c0.73-0.383,2.038-2.825,2.259-4.888c0.574-0.047,1.479-0.607,1.744-2.818  c0.143-1.187-0.425-1.855-0.771-2.065c0.934-2.809,2.874-11.499-3.588-12.397c-0.665-1.168-2.368-1.759-4.581-1.759  c-8.854,0.163-9.922,6.686-7.981,14.156c-0.345,0.21-0.913,0.878-0.771,2.065c0.266,2.211,1.17,2.771,1.744,2.818  c0.22,2.062,1.58,4.505,2.312,4.888c0,1.473,0.055,2.598-0.091,4.21c-1.261,3.39-7.737,3.655-11.473,6.924  c3.906,3.933,10.236,6.746,16.916,6.746s14.532-5.274,15.839-6.713C37.688,39.186,31.197,38.93,29.933,35.528z"/>
+  </symbol>
+
+  <symbol id="desc-icon" stroke="green" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16,31A15,15,0,1,1,31,16,15,15,0,0,1,16,31ZM16,3A13,13,0,1,0,29,16,13,13,0,0,0,16,3Z"/><path d="M13.67,22a1,1,0,0,1-.73-.32l-4.67-5a1,1,0,0,1,1.46-1.36l3.94,4.21,8.6-9.21a1,1,0,1,1,1.46,1.36l-9.33,10A1,1,0,0,1,13.67,22Z"/>
+  </symbol>
+
+  <symbol id="send-icon" height="25" viewBox="0 0 20 20" width="25" xmlns="http://www.w3.org/2000/svg"><title/><desc/><defs/><g fill="none" fill-rule="evenodd" id="Page-1" stroke="#706f6f" stroke-width="1"><g fill="none"  transform="translate(-421.000000, -381.000000)"><g id="send" transform="translate(421.500000, 381.000000)"><path d="M0,18 L21,9 L0,0 L0,7 L15,9 L0,11 L0,18 Z" id="Shape"/></g></g></g>
+  </symbol>
+
+</svg>
